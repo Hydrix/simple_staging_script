@@ -11,9 +11,9 @@ git clone https://github.com/Hydrix/simple_staging_script
 ``` bash
 cd simple_staging_script
 ```
-3) Config your staging dir to monitor and your(s) destination(s) dir(s)
+3) Config your staging dir to monitor and your(s) destination(s) dir(s) with your favorite edior
 ``` bash
-nano config.yaml
+vi config.yaml
 ```
 
 4) Run the script
