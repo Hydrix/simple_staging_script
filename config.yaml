@@ -1,0 +1,5 @@
+pollingTime:
+ - 30
+
+destDirs:
+ - /dir1_path
