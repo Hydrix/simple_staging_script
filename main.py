@@ -2,6 +2,7 @@
 import threading
 import time
 import os
+import sys
 import shutil
 import yaml
 from datetime import timedelta
@@ -10,10 +11,12 @@ import signal
 K32SIZE=108000000000
 
 def readConfig():
+    print("Looking for config file.")
     with open(r'config.yaml') as file:
         dataDict = yaml.load(file, Loader=yaml.FullLoader)
     pollintTime=dataDict['pollingTime']
     dirsList=dataDict['destDirs']
+    print("Looking for plots on {}".format(dirsList))
     dirsDict={dirsList[i] : 0 for i in range(len(dirsList))}   
     return pollintTime,dirsDict
 
@@ -71,8 +74,9 @@ if __name__ == "__main__":
     job = Job(interval=timedelta(seconds=pollingTime), execute=worker)
     job.start()
     
-#    while True:
-#        try:
-#            pass
-#        except KeyboardInterrupt:
-            
+    while True:
+        try:
+            pass
+        except KeyboardInterrupt:
+            print("Staging done.")
+            sys.exit()
